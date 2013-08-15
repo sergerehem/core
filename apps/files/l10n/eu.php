@@ -1,4 +1,5 @@
-<?php $TRANSLATIONS = array(
+<?php
+$TRANSLATIONS = array(
 "Could not move %s - File with this name already exists" => "Ezin da %s mugitu - Izen hau duen fitxategia dagoeneko existitzen da",
 "Could not move %s" => "Ezin dira fitxategiak mugitu %s",
 "Unable to set upload directory." => "Ezin da igoera direktorioa ezarri.",
@@ -33,7 +34,7 @@
 "replaced {new_name} with {old_name}" => " {new_name}-k {old_name} ordezkatu du",
 "undo" => "desegin",
 "perform delete operation" => "Ezabatu",
-"1 file uploading" => "fitxategi 1 igotzen",
+"_Uploading %n file_::_Uploading %n files_" => array("",""),
 "files uploading" => "fitxategiak igotzen",
 "'.' is an invalid file name." => "'.' ez da fitxategi izen baliogarria.",
 "File name cannot be empty." => "Fitxategi izena ezin da hutsa izan.",
@@ -45,10 +46,8 @@
 "Name" => "Izena",
 "Size" => "Tamaina",
 "Modified" => "Aldatuta",
-"1 folder" => "karpeta bat",
-"{count} folders" => "{count} karpeta",
-"1 file" => "fitxategi bat",
-"{count} files" => "{count} fitxategi",
+"_%n folder_::_%n folders_" => array("",""),
+"_%n file_::_%n files_" => array("",""),
 "%s could not be renamed" => "%s ezin da berrizendatu",
 "Upload" => "Igo",
 "File handling" => "Fitxategien kudeaketa",
@@ -68,7 +67,6 @@
 "You don’t have write permissions here." => "Ez duzu hemen idazteko baimenik.",
 "Nothing in here. Upload something!" => "Ez dago ezer. Igo zerbait!",
 "Download" => "Deskargatu",
-"Size (MB)" => "Tamaina (MB)",
 "Unshare" => "Ez elkarbanatu",
 "Upload too large" => "Igoera handiegia da",
 "The files you are trying to upload exceed the maximum size for file uploads on this server." => "Igotzen saiatzen ari zaren fitxategiak zerbitzari honek igotzeko onartzen duena baino handiagoak dira.",
@@ -80,3 +78,4 @@
 "files" => "fitxategiak",
 "Upgrading filesystem cache..." => "Fitxategi sistemaren katxea eguneratzen..."
 );
+$PLURAL_FORMS = "nplurals=2; plural=(n != 1);";
