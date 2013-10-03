@@ -679,11 +679,13 @@ $(document).ready(function() {
 		var itemSource = $('#dropdown').data('item-source');
 		var file = $('tr').filterAttr('data-id', String(itemSource)).data('file');
 		var email = $('#email').val();
-		if (email != '') {
+    var emails = email.replace(/,/g,' ');
+    emails = emails.replace(/;/g,' ');
+    emails = $.trim(emails.replace(/\s+/g,' '));
+		if (emails != '') {		
 			$('#email').attr('disabled', "disabled");
 			$('#email').val(t('core', 'Sending ...'));
 			$('#emailButton').attr('disabled', "disabled");
-
 			$.post(OC.filePath('core', 'ajax', 'share.php'), { action: 'email', toaddress: email, link: link, itemType: itemType, itemSource: itemSource, file: file},
 				function(result) {
 					$('#email').attr('disabled', "false");
@@ -694,6 +696,7 @@ $(document).ready(function() {
 						$(this).val('');
 					}).val(t('core','Email sent'));
 				} else {
+  				$('#email').val(email); 				
 					OC.dialogs.alert(result.data.message, t('core', 'Error while sharing'));
 				}
 			});
