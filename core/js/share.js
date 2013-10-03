@@ -199,7 +199,8 @@ OC.Share={
 					html += '</div>';
 				}
 				html += '</div><form id="emailPrivateLink" >';
-				html += '<input id="email" style="display:none; width:62%;" value="" placeholder="'+t('core', 'Email link to person')+'" type="text" />';
+				html += '<textarea id="email" rows="2" style="display:none; width:90%;" value="" placeholder="'+t('core', 'Email link to person')+'" />';
+				html += '<br />';							
 				html += '<input id="emailButton" style="display:none;" type="submit" value="'+t('core', 'Send')+'" />';
 				html += '</form>';
 			}
