@@ -686,7 +686,8 @@ $(document).ready(function() {
 			$('#email').attr('disabled', "disabled");
 			$('#email').val(t('core', 'Sending ...'));
 			$('#emailButton').attr('disabled', "disabled");
-			$.post(OC.filePath('core', 'ajax', 'share.php'), { action: 'email', toaddress: email, link: link, itemType: itemType, itemSource: itemSource, file: file},
+			
+			$.post(OC.filePath('core', 'ajax', 'share.php'), { action: 'email', toaddress: emails, link: link, itemType: itemType, itemSource: itemSource, file: file},
 				function(result) {
 					$('#email').attr('disabled', "false");
 					$('#emailButton').attr('disabled', "false");
