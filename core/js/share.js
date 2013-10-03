@@ -696,7 +696,7 @@ $(document).ready(function() {
 						$(this).val('');
 					}).val(t('core','Email sent'));
 				} else {
-  				$('#email').val(email); 				
+  				$('#email').val(email);				
 					OC.dialogs.alert(result.data.message, t('core', 'Error while sharing'));
 				}
 			});
