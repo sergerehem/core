@@ -397,7 +397,7 @@ class OC_User {
 		if ($user) {
 			return $user->getHome();
 		} else {
-			return OC_Config::getValue('datadirectory', OC::$SERVERROOT . '/data') . '/XANGRILA' . $uid;
+			return OC_Config::getValue('datadirectory', OC::$SERVERROOT . '/data') . '/' . $uid;
 		}
 	}
 

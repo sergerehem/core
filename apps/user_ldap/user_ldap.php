@@ -191,29 +191,7 @@ class USER_LDAP extends lib\Access implements \OCP\UserInterface {
 		}
 		if(strpos($this->connection->homeFolderNamingRule, 'attr:') === 0) {
 			$attr = substr($this->connection->homeFolderNamingRule, strlen('attr:'));
-			// LDAP attributes can be an hiearchy in form /attr1/attr2/../attrN.
-			// You can also get substrig of each attribute, in the form attr[N], where N
-			// is the first N characters.
-      if(strpos($attr,'/') > 0) {
-    		$attrs = explode('/', $attr);
-
-        for ($i = 0; $i < count($attrs); $i++) {
-          preg_match("/(.*?)\[(.*?)]/", $attrs[$i], $m);
-          if(count($m)===0) {
-  				  $attribute = $this->readAttribute($this->username2dn($uid), $attrs[$i])[0];          
-          } else {
-            $attribute = substr($this->readAttribute($this->username2dn($uid), $m[1])[0], 0, $m[2]);
-          }
-          $homedir = $homedir . ($i>0?'/':'') . $attribute;                    
-    		}
-
-				$homedir = \OCP\Config::getSystemValue('datadirectory',
-					\OC::$SERVERROOT.'/data' ) . '/' . $homedir;
-				$this->connection->writeToCache($cacheKey, $homedir);
-				return $homedir;
-      } else {			
-  			$homedir = $this->readAttribute($this->username2dn($uid), $attr);
-			}
+			$homedir = $this->readAttribute($this->username2dn($uid), $attr);
 			if($homedir && isset($homedir[0])) {
 				$path = $homedir[0];
 				//if attribute's value is an absolute path take this, otherwise append it to data dir
@@ -237,7 +215,7 @@ class USER_LDAP extends lib\Access implements \OCP\UserInterface {
 		$this->connection->writeToCache($cacheKey, false);
 		return false;
 	}
-i
+
 	/**
 	 * @brief get display name of the user
 	 * @param $uid user ID of the user
